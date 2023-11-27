@@ -1,12 +1,19 @@
 package com.myproject.user.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "authority_table")
+@Getter
 public class Authority {
-    enum AuthorityName{
+    public enum AuthorityName{
         USER, ADMIN;
+
+        @Override
+        public String toString() {
+            return name();
+        }
     }
 
     @Id
